@@ -20,7 +20,6 @@ router.get('/submit', function(req,res){
 })
 
 
-
-//router.post()
+router.post('')
 
 module.exports = router;
