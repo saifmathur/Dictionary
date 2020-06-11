@@ -4,5 +4,5 @@ const dictSchema = new mongoose.Schema({
     meaning: {type: String, required: true}
 })
 
-const Dict = mongoose.model('Dict', dictSchema);
+const Dict = mongoose.model('data', dictSchema);
 module.exports = Dict;
