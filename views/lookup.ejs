@@ -8,7 +8,11 @@
 <body>
     <h1>Search for the desired keyword in the dictionary</h1>
     <br>
-    <input type="text" placeholder="Enter Word">
+    <form action="/lookup" method="GET">
+    <input type="text" placeholder="Enter Word" name="word">
     <button type="submit" value="submit">Search</button>
+    </form>
+    <br><br>
+    <label for="meaning">  </label>
 </body>
 </html>

@@ -13,8 +13,13 @@ router.get('/', function(req,res){
 
 router.get('/lookup', function(req, res){
    res.render('lookup');
-    
+   Dictionary.findOne({_id: req.params.id},function (err, dictionary){
+       console.log()
+   })
+
 })
+
+
 
 router.get('/submit', function(req,res){
     res.render('submit')
