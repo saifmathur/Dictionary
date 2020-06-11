@@ -11,11 +11,21 @@ router.get('/', function(req,res){
 })
 
 
+
+
 router.get('/lookup', function(req, res){
-   res.render('lookup');
-   Dictionary.findOne({_id: req.params.id},function (err, dictionary){
-       console.log()
-   })
+    Dictionary.findOne({word: req.query.word},function(err, result){
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.render('lookup')
+            console.log(result);
+            
+
+            
+        }
+    })
 
 })
 
