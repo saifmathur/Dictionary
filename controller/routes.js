@@ -20,6 +20,8 @@ router.get('/submit', function(req,res){
 })
 
 
-router.post('')
+router.post('/submit', function(req,res){
+    console.log(req.body);
+})
 
 module.exports = router;
