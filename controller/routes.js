@@ -22,8 +22,8 @@ router.get('/', function(req,res){
 
 
 router.get('/lookup', function(req, res){
-    var query = {}
-    query.word = req.query.word
+    var query = {};
+    query.word = req.query.word;
     Dictionary.findOne(query,function(err, result){
         if(err){
             console.log(err);
