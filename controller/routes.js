@@ -1,10 +1,19 @@
 const express = require('express')
 const app = express;
 const router = express.Router()
+const bodyParser = require('body-parser')
+
 
 
 //get a database in
 const Dictionary = require('../models/dictionary');
+const { query } = require('express');
+
+router.use(bodyParser.urlencoded(
+    { extended: false }
+))
+
+router.use(bodyParser.json());
 
 router.get('/', function(req,res){
     res.render('dictionaryFront')
@@ -12,21 +21,27 @@ router.get('/', function(req,res){
 
 
 
-
 router.get('/lookup', function(req, res){
-    Dictionary.findOne({word: req.query.word},function(err, result){
+    var query = {}
+    query.word = req.query.word
+    Dictionary.findOne(query,function(err, result){
         if(err){
             console.log(err);
+            //return next(err)
         }
         else{
-            res.render('lookup')
             console.log(result);
-            
-
+            res.render('lookup',{
+                title: 'Dictionary',
+                word: req.query.word,
+                meaning: result.meaning,
+            })
             
         }
     })
-
+   /*res.render('lookup',{
+       title: 'Dictionary'
+   })*/
 })
 
 
